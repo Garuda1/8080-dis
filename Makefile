@@ -11,7 +11,7 @@ HDR_DIR := ./src/include
 
 SRCS := $(shell find $(SRC_DIR) -name "*.c")
 OBJS := $(shell find $(SRC_DIR) -name "*.o")
-NAME := da
+NAME := 8080dis
 
 WARNINGS := -Wall -Wextra -Werror -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wuninitialized -Wstrict-prototypes
 CFLAGS := -std=c89 -lm -s -O2 -I$(HDR_DIR)  $(WARNINGS) -o $(NAME).bin

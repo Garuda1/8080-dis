@@ -6,6 +6,8 @@
  */
 
 #include "args.h"
+#include "util.h"
+#include "text.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -14,18 +16,11 @@
 int args_parse(struct args_s *args, const int argc, char **argv)
 {
   if (argc != 2)
-  {
-    fprintf(stderr, "Invalid number of arguments\n");
-    return (EXIT_FAILURE);
-  }
+    return (retstr(EXIT_FAILURE, ERR_ARGS, __FILE__, __LINE__));
 
   /* Initialize the path string */
-  args->path = malloc(strlen(argv[1])+1);
-  if (args->path == NULL)
-  {
-    fprintf(stderr, "Memory allocation error\n");
-    return (EXIT_FAILURE);
-  }
+  if ((args->path = malloc(strlen(argv[1])+1)) == NULL)
+    return (retstr(EXIT_FAILURE, ERR_MALLOC, __FILE__, __LINE__));
   memset(args->path, '\0', strlen(args->path));
 
   /* Load its value */

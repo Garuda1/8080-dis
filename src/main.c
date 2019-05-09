@@ -23,10 +23,7 @@ int main(int argc, char **argv)
 
   /* Parse the shell arguments */
   if (args_parse(&args, argc, argv) == EXIT_FAILURE)
-  {
-    fprintf(stderr, "Couldn't parse arguments\n");
-    return (EXIT_FAILURE);
-  }
+    return (retstr(EXIT_FAILURE, ERR_ARGS, __FILE__, __LINE__));
 
   /* Open the input file */
   if ((input_file = fopen(args.path, "r")) == NULL)
