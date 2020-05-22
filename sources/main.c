@@ -63,5 +63,9 @@ int main(int argc, char **argv)
     return (retstr(EXIT_FAILURE, ERR_DISASSEMBLY, __FILE__, __LINE__));
   }
 
+  args_free(&args);
+  fclose(input_file);
+  free(code_buffer);
+
   return (EXIT_SUCCESS);
 }

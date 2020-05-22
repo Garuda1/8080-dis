@@ -1,5 +1,5 @@
 /*
- * util.h>
+ * util.h
  *
  * Licensed under MIT license
  *
